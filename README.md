@@ -1,3 +1,5 @@
+![Hero Banner](./assets/hero.svg)
+
 # Hi there 👋 I'm Punit Alagoudar
 
 > Software Engineer • Full‑stack Developer • Open‑Source Contributor
