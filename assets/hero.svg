@@ -1,318 +1,96 @@
-<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
   <defs>
     <style>
       @media (prefers-color-scheme: dark) {
-        .bg-primary { fill: #0d1117; }
-        .bg-secondary { fill: #161b22; }
-        .grid-line { stroke: #21262d; }
+        .bg { fill: #0d1117; }
         .text-main { fill: #f0f6fc; }
         .text-sub { fill: #c9d1d9; }
         .text-muted { fill: #8b949e; }
+        .grid { stroke: #21262d; }
       }
       @media (prefers-color-scheme: light) {
-        .bg-primary { fill: #f6f8fa; }
-        .bg-secondary { fill: #eaeef2; }
-        .grid-line { stroke: #d0d5dd; }
+        .bg { fill: #f6f8fa; }
         .text-main { fill: #0d1117; }
         .text-sub { fill: #24292f; }
         .text-muted { fill: #57606a; }
+        .grid { stroke: #d0d7de; }
       }
-      
-      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 68px; font-weight: 800; letter-spacing: -1.5px; }
-      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 500; letter-spacing: -0.4px; }
-      .tagline { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; }
-      
-      /* Floating animations */
-      @keyframes float-main { 0%, 100% { transform: translateY(0px) translateX(0px); } 25% { transform: translateY(-25px) translateX(5px); } 50% { transform: translateY(-35px) translateX(-8px); } 75% { transform: translateY(-15px) translateX(3px); } }
-      @keyframes float-slow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-30px); } }
-      @keyframes float-inverse { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(25px); } }
-      @keyframes float-orbit { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
-      
-      /* Pulse and glow animations */
-      @keyframes pulse-large { 0%, 100% { r: 50px; opacity: 0.12; } 50% { r: 75px; opacity: 0.25; } }
-      @keyframes pulse-medium { 0%, 100% { r: 35px; opacity: 0.1; } 50% { r: 55px; opacity: 0.22; } }
-      @keyframes pulse-small { 0%, 100% { r: 25px; opacity: 0.08; } 50% { r: 40px; opacity: 0.18; } }
-      @keyframes pulse-ring { 0%, 100% { r: 60px; opacity: 0.15; stroke-width: 2px; } 50% { r: 85px; opacity: 0.08; stroke-width: 1.5px; } }
-      
-      /* Rotation animations */
-      @keyframes rotate-fast { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      @keyframes rotate-slow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      @keyframes rotate-reverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
-      @keyframes spin-orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      
-      /* Shimmer and wave effects */
-      @keyframes shimmer { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.45; } }
-      @keyframes shimmer-slow { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.3; } }
-      @keyframes wave { 0% { transform: translateX(0px); } 100% { transform: translateX(1200px); } }
-      @keyframes wave-reverse { 0% { transform: translateX(-1200px); } 100% { transform: translateX(0px); } }
-      
-      /* Text animations */
-      @keyframes slide-in-left { 0% { transform: translateX(-60px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
-      @keyframes slide-in-bottom { 0% { transform: translateY(40px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
-      @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-      @keyframes glow-pulse { 0%, 100% { filter: drop-shadow(0 0 0px rgba(88,166,255,0.8)); } 50% { filter: drop-shadow(0 0 20px rgba(88,166,255,1)); } }
-      
-      /* Scale animations */
-      @keyframes scale-up { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-      @keyframes scale-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-      
-      /* Grid flow */
-      @keyframes grid-scroll { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
-      @keyframes grid-scroll-reverse { 0% { transform: translateY(100%); } 100% { transform: translateY(-100%); } }
-      
-      /* Blob animations */
-      @keyframes blob-move-1 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 30px) scale(0.95); } }
-      @keyframes blob-move-2 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(-40px, 20px) scale(0.9); } 66% { transform: translate(25px, -40px) scale(1.05); } }
-      
-      /* Glow line */
-      @keyframes glow-line { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
-      
-      /* Particle float */
-      @keyframes particle-float-1 { 0% { transform: translateY(400px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100px); opacity: 0; } }
-      @keyframes particle-float-2 { 0% { transform: translateY(400px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-100px); opacity: 0; } }
-      
-      /* Apply animations */
-      .float-1 { animation: float-main 8s cubic-bezier(0.43, 0.13, 0.23, 0.96) infinite; }
-      .float-2 { animation: float-slow 10s ease-in-out infinite; animation-delay: 1.5s; }
-      .float-3 { animation: float-orbit 9s ease-in-out infinite; animation-delay: 0.5s; }
-      .float-inverse { animation: float-inverse 7s ease-in-out infinite; }
-      
-      .pulse-1 { animation: pulse-large 5s ease-in-out infinite; }
-      .pulse-2 { animation: pulse-medium 6s ease-in-out infinite; animation-delay: 0.8s; }
-      .pulse-3 { animation: pulse-small 7s ease-in-out infinite; animation-delay: 1.5s; }
-      .pulse-ring { animation: pulse-ring 6s ease-in-out infinite; }
-      
-      .rotate-1 { animation: rotate-fast 15s linear infinite; }
-      .rotate-2 { animation: rotate-slow 20s linear infinite; }
-      .rotate-3 { animation: rotate-reverse 18s linear infinite; }
-      .spin-orbit { animation: spin-orbit 25s linear infinite; }
-      
-      .shimmer-1 { animation: shimmer 4s ease-in-out infinite; }
-      .shimmer-2 { animation: shimmer-slow 5s ease-in-out infinite; animation-delay: 1s; }
-      .wave-1 { animation: wave 6s linear infinite; }
-      .wave-2 { animation: wave-reverse 8s linear infinite; animation-delay: 0.5s; }
-      
-      .slide-1 { animation: slide-in-left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-      .slide-2 { animation: slide-in-left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-delay: 0.2s; }
-      .slide-3 { animation: slide-in-bottom 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-delay: 0.4s; }
+
+      .title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 60px;
+        font-weight: 800;
+        letter-spacing: -1.2px;
+      }
+      .subtitle {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .tagline {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 15px;
+      }
+
+      /* Subtle animations */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-18px); }
+      }
+      @keyframes drift {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(30px); }
+      }
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .float { animation: float 14s ease-in-out infinite; }
+      .drift { animation: drift 22s ease-in-out infinite; }
       .fade { animation: fade-in 1.2s ease-out forwards; }
-      .glow { animation: glow-pulse 3s ease-in-out infinite; }
-      
-      .scale { animation: scale-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-      .breathe { animation: scale-breathe 6s ease-in-out infinite; }
-      
-      .blob-1 { animation: blob-move-1 12s ease-in-out infinite; }
-      .blob-2 { animation: blob-move-2 14s ease-in-out infinite; animation-delay: 1s; }
-      
-      .glow-line { animation: glow-line 3s ease-in-out infinite; }
-      
-      .particle-1 { animation: particle-float-1 6s ease-in 0s infinite; }
-      .particle-2 { animation: particle-float-2 7s ease-in 1s infinite; }
     </style>
-    
+
     <!-- Gradients -->
-    <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3fb9ff;stop-opacity:1" />
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#8250df" stop-opacity="0.9"/>
     </linearGradient>
-    
-    <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#bc8ef9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#58a6ff;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="grad-orange" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f85149;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fb8500;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="grad-green" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3fb950;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#26d926;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="grad-text" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#bc8ef9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f85149;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Radial gradients for glows -->
-    <radialGradient id="glow-blue-radial" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.5" />
-      <stop offset="100%" style="stop-color:#58a6ff;stop-opacity:0" />
+
+    <radialGradient id="softGlow">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
     </radialGradient>
-    
-    <radialGradient id="glow-purple-radial" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#bc8ef9;stop-opacity:0.4" />
-      <stop offset="100%" style="stop-color:#bc8ef9;stop-opacity:0" />
-    </radialGradient>
-    
-    <radialGradient id="glow-orange-radial" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#f85149;stop-opacity:0.35" />
-      <stop offset="100%" style="stop-color:#f85149;stop-opacity:0" />
-    </radialGradient>
-    
-    <!-- Filters -->
-    <filter id="blur-lg">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" />
-    </filter>
-    
-    <filter id="blur-md">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-    </filter>
-    
-    <filter id="glow-sharp">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <!-- Pattern definitions -->
-    <pattern id="grid-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
-      <path d="M 50 0 L 0 0 0 50" fill="none" stroke-width="0.5" class="grid-line" opacity="0.3"/>
-    </pattern>
-    
-    <pattern id="dots-pattern" width="30" height="30" patternUnits="userSpaceOnUse">
-      <circle cx="15" cy="15" r="1.5" class="grid-line" opacity="0.2"/>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke-width="0.5" class="grid"/>
     </pattern>
   </defs>
-  
+
   <!-- Background -->
-  <rect class="bg-primary" width="1200" height="400" />
-  
-  <!-- Secondary background layer -->
-  <rect class="bg-secondary" width="1200" height="400" opacity="0.3" />
-  
-  <!-- Animated grid background -->
-  <g opacity="0.06">
-    <rect width="1200" height="400" fill="url(#grid-pattern)" />
-    <g class="wave-1">
-      <rect width="1200" height="400" fill="url(#grid-pattern)" opacity="0.5" />
-    </g>
-    <g class="wave-2">
-      <rect width="1200" height="400" fill="url(#grid-pattern)" opacity="0.3" />
-    </g>
-  </g>
-  
-  <!-- Dots pattern -->
-  <g opacity="0.04">
-    <rect width="1200" height="400" fill="url(#dots-pattern)" />
-  </g>
-  
-  <!-- Gradient overlay -->
-  <defs>
-    <linearGradient id="overlay" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.08" />
-      <stop offset="50%" style="stop-color:#bc8ef9;stop-opacity:0.05" />
-      <stop offset="100%" style="stop-color:#f85149;stop-opacity:0.06" />
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="400" fill="url(#overlay)" />
-  
-  <!-- Floating blobs - Layer 1 -->
-  <g id="blob-layer" opacity="0.15">
-    <g class="blob-1">
-      <circle cx="1050" cy="120" r="90" fill="url(#grad-blue)" opacity="0.3" filter="url(#blur-lg)" />
-    </g>
-    <g class="blob-2">
-      <circle cx="200" cy="320" r="70" fill="url(#grad-orange)" opacity="0.25" filter="url(#blur-lg)" />
-    </g>
-  </g>
-  
-  <!-- Large glow circles - Layer 2 -->
-  <g id="glow-layer-large">
-    <circle class="float-1 pulse-1" cx="1100" cy="100" r="50" fill="url(#glow-blue-radial)" filter="url(#blur-lg)" />
-    <circle class="float-2 pulse-2" cx="150" cy="340" r="35" fill="url(#glow-orange-radial)" filter="url(#blur-lg)" />
-    <circle class="float-3 pulse-3" cx="950" cy="300" r="25" fill="url(#glow-purple-radial)" filter="url(#blur-lg)" />
-  </g>
-  
-  <!-- Orbiting rings - Layer 3 -->
-  <g id="orbit-rings">
-    <g class="rotate-1">
-      <circle cx="1100" cy="100" r="70" fill="none" stroke="url(#grad-blue)" stroke-width="1.5" opacity="0.2" />
-    </g>
-    <g class="rotate-2">
-      <circle cx="150" cy="340" r="55" fill="none" stroke="url(#grad-orange)" stroke-width="1.5" opacity="0.18" />
-    </g>
-    <g class="rotate-3">
-      <circle cx="950" cy="300" r="40" fill="none" stroke="url(#grad-purple)" stroke-width="1" opacity="0.15" />
-    </g>
-  </g>
-  
-  <!-- Pulse rings -->
-  <g id="pulse-rings">
-    <circle class="pulse-ring spin-orbit" cx="1100" cy="100" r="60" fill="none" stroke="url(#grad-blue)" opacity="0.2" />
-    <circle class="pulse-ring" cx="150" cy="340" r="45" fill="none" stroke="url(#grad-orange)" opacity="0.18" style="animation-delay: 0.5s;" />
-  </g>
-  
-  <!-- Decorative boxes with animations -->
-  <g id="accent-boxes" opacity="0.2">
-    <g class="float-1 scale">
-      <rect x="980" y="240" width="80" height="80" rx="12" fill="url(#grad-orange)" opacity="0.15" />
-    </g>
-    <g class="float-2 breathe">
-      <rect x="80" y="100" width="60" height="60" rx="10" fill="url(#grad-purple)" opacity="0.12" />
-    </g>
-    <g class="float-inverse scale" style="animation-delay: 0.5s;">
-      <rect x="550" y="50" width="50" height="50" rx="8" fill="url(#grad-green)" opacity="0.1" />
-    </g>
-  </g>
-  
-  <!-- Particle effects -->
-  <g id="particles" opacity="0.25">
-    <circle class="particle-1" cx="600" cy="380" r="3" fill="url(#grad-blue)" />
-    <circle class="particle-2" cx="500" cy="380" r="2.5" fill="url(#grad-purple)" style="animation-delay: 0.5s;" />
-    <circle class="particle-1" cx="700" cy="380" r="2" fill="url(#grad-orange)" style="animation-delay: 1s;" />
-  </g>
-  
-  <!-- Top accent line with glow -->
-  <defs>
-    <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0" />
-      <stop offset="30%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#bc8ef9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#bc8ef9;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="60" y1="370" x2="700" y2="370" stroke="url(#line-gradient)" stroke-width="2.5" class="glow-line" />
-  
-  <!-- Decorative corner elements -->
-  <g id="corners" opacity="0.12">
-    <g class="shimmer-1">
-      <circle cx="1150" cy="40" r="30" fill="url(#grad-blue)" />
-    </g>
-    <g class="shimmer-2">
-      <circle cx="80" cy="370" r="25" fill="url(#grad-orange)" />
-    </g>
-    <g class="scale" style="animation-delay: 0.3s;">
-      <rect x="1100" y="350" width="40" height="40" rx="6" fill="url(#grad-purple)" opacity="0.15" />
-    </g>
-  </g>
-  
-  <!-- Shimmer accent lines -->
-  <g id="shimmer-lines" opacity="0.3">
-    <line x1="60" y1="280" x2="150" y2="280" stroke="url(#grad-blue)" stroke-width="1.5" class="shimmer-1" />
-    <line x1="1100" y1="200" x2="1170" y2="200" stroke="url(#grad-purple)" stroke-width="1.5" class="shimmer-2" style="animation-delay: 0.5s;" />
-  </g>
-  
-  <!-- Main text content with advanced animations -->
-  <g id="text-main-content">
-    <text x="60" y="130" class="title text-main slide-1">Punit Alagoudar</text>
-    
-    <text x="60" y="195" class="subtitle text-sub slide-2">
+  <rect width="1200" height="360" class="bg"/>
+
+  <!-- Grid -->
+  <rect width="1200" height="360" fill="url(#grid)" opacity="0.15"/>
+
+  <!-- Floating blobs -->
+  <circle cx="980" cy="110" r="110" fill="url(#blueGrad)" opacity="0.22" class="float"/>
+  <circle cx="220" cy="300" r="90" fill="url(#blueGrad)" opacity="0.18" class="drift"/>
+
+  <!-- Glow -->
+  <circle cx="980" cy="110" r="160" fill="url(#softGlow)" />
+
+  <!-- Text -->
+  <g class="fade">
+    <text x="64" y="140" class="title text-main">Punit Alagoudar</text>
+
+    <text x="64" y="192" class="subtitle text-sub">
       Software Engineer • Full-stack Developer • Open-Source Contributor
     </text>
-    
-    <text x="60" y="235" class="tagline text-muted slide-3">
+
+    <text x="64" y="230" class="tagline text-muted">
       Building scalable backends • Modern web applications • Clean architecture
     </text>
-  </g>
-  
-  <!-- Glow text effect (optional secondary effect) -->
-  <g id="text-glow" opacity="0.0" class="fade" style="animation-delay: 0.8s;">
-    <text x="61" y="131" class="title slide-1" fill="url(#grad-blue)" opacity="0.15" style="filter: blur(2px);">Punit Alagoudar</text>
   </g>
 </svg>
