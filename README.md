@@ -4,9 +4,6 @@
 
 <div align="center">
 
-# 🎨 Punit Alagoudar
-
-## Architect • Engineer • Builder
 
 ### *Creating production-grade systems that scale, perform, and inspire*
 
