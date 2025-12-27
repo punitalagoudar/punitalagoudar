@@ -1,38 +1,101 @@
-<svg width="1200" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Punit Alagoudar Banner">
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Animated gradient -->
-    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#06b6d4">
-        <animate attributeName="stop-color" values="#06b6d4;#7c3aed;#06b6d4" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#7c3aed">
-        <animate attributeName="stop-color" values="#7c3aed;#06b6d4;#7c3aed" dur="6s" repeatCount="indefinite"/>
-      </stop>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
-    </filter>
     <style>
-      .title { font-family: "Segoe UI", Arial, sans-serif; font-size: 46px; font-weight: 700; fill: #ffffff; filter: url(#shadow); }
-      .subtitle { font-family: "Segoe UI", Arial, sans-serif; font-size: 22px; fill: #cbd5e1; }
-      .tagline { font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; fill: #94a3b8; }
+      @media (prefers-color-scheme: dark) {
+        .bg-base { fill: #0f1419; }
+        .text-primary { fill: #ffffff; }
+        .text-secondary { fill: #d0d5dd; }
+        .text-tertiary { fill: #8b949e; }
+        .accent-line { stroke: #30363d; }
+      }
+      @media (prefers-color-scheme: light) {
+        .bg-base { fill: #ffffff; }
+        .text-primary { fill: #0d1117; }
+        .text-secondary { fill: #24292f; }
+        .text-tertiary { fill: #57606a; }
+        .accent-line { stroke: #d0d5dd; }
+      }
+      
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; font-size: 54px; font-weight: 700; letter-spacing: -0.5px; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 500; letter-spacing: -0.2px; }
+      .tagline { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; }
+      
+      @keyframes float-1 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+      }
+      @keyframes float-2 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes pulse-opacity {
+        0%, 100% { opacity: 0.08; }
+        50% { opacity: 0.15; }
+      }
+      @keyframes slide-right {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes rotate-slow {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .float-accent-1 { animation: float-1 6s ease-in-out infinite; }
+      .float-accent-2 { animation: float-2 8s ease-in-out infinite; }
+      .pulse { animation: pulse-opacity 4s ease-in-out infinite; }
+      .slide { animation: slide-right 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+      .rotate { animation: rotate-slow 20s linear infinite; }
     </style>
+    
+    <linearGradient id="grad-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="grad-secondary" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="grad-glow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    
+    <filter id="blur-subtle">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="1200" height="260" rx="16" fill="#0b1220"/>
   
-  <!-- Gradient overlay for depth -->
-  <rect x="20" y="20" width="1160" height="220" rx="14" fill="url(#grad)" opacity="0.12"/>
-  <rect x="40" y="40" width="1120" height="180" rx="12" fill="url(#grad)" opacity="0.08"/>
-
-  <!-- Decorative accents -->
-  <circle cx="1120" cy="60" r="50" fill="url(#grad)" opacity="0.15"/>
-  <circle cx="1080" cy="180" r="30" fill="url(#grad)" opacity="0.1"/>
-  <rect x="0" y="240" width="1200" height="20" fill="url(#grad)" opacity="0.25"/>
-
-  <!-- Text -->
-  <text x="60" y="110" class="title">Punit Alagoudar</text>
-  <text x="60" y="155" class="subtitle">Software Engineer • Full‑Stack Developer • Open‑Source Contributor</text>
-  <text x="60" y="195" class="tagline">Building scalable backends • Modern web apps • Clean architecture</text>
+  <rect class="bg-base" width="1200" height="280" />
+  
+  <g id="background-elements" opacity="0.6">
+    <circle class="float-accent-1 pulse" cx="1100" cy="80" r="72" fill="url(#grad-glow)" />
+    <circle class="float-accent-2 pulse" cx="120" cy="220" r="48" fill="url(#grad-glow)" style="animation-delay: 2s;" />
+  </g>
+  
+  <g id="decorative-shapes" opacity="0.12">
+    <circle class="rotate" cx="950" cy="140" r="40" fill="none" stroke="url(#grad-primary)" stroke-width="1.5" />
+    <rect class="float-accent-1" x="180" y="40" width="60" height="60" rx="8" fill="url(#grad-secondary)" opacity="0.1" style="animation-delay: 1s;" />
+  </g>
+  
+  <line x1="60" y1="260" x2="280" y2="260" class="accent-line" stroke-width="2" opacity="0.5" />
+  
+  <g id="content">
+    <text x="60" y="85" class="title text-primary slide" style="animation-delay: 0.1s;">Punit Alagoudar</text>
+    
+    <text x="60" y="135" class="subtitle text-secondary slide" style="animation-delay: 0.2s;">Software Engineer • Full-stack Developer • Open-Source Contributor</text>
+    
+    <text x="60" y="165" class="tagline text-tertiary slide" style="animation-delay: 0.3s;">Building scalable backends • Modern web applications • Clean architecture</text>
+  </g>
 </svg>
