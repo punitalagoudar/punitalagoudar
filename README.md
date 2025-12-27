@@ -191,21 +191,21 @@ I architect and build **scalable, production-ready systems** that power real-wor
 
 <div align="center">
 
-<picture>
-  <source srcset="https://github-readme-stats.vercel.app/api?username=punitalagoudar&show_icons=true&theme=dark&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&icon_color=58a6ff&border_color=30363d&border_radius=10" media="(prefers-color-scheme: dark)" />
-  <img src="https://github-readme-stats.vercel.app/api?username=punitalagoudar&show_icons=true&border_radius=10" alt="GitHub Stats" />
-</picture>
+<img
+  src="https://github-readme-stats-alpha-ivory-69.vercel.app/api?username=punitalagoudar&show_icons=true&hide_border=true"
+  alt="GitHub Stats"
+  height="180"
+/>
+
+<img
+  src="https://github-readme-stats-alpha-ivory-69.vercel.app/api/top-langs/?username=punitalagoudar&layout=compact&langs_count=8&hide_border=true"
+  alt="Top Languages"
+  height="180"
+/>
 
 </div>
 
-<div align="center">
 
-<picture>
-  <source srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=punitalagoudar&layout=compact&theme=dark&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&border_color=30363d&border_radius=10" media="(prefers-color-scheme: dark)" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=punitalagoudar&layout=compact&border_radius=10" alt="Top Languages" />
-</picture>
-
-</div>
 
 ---
 
